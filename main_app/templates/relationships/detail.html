@@ -10,6 +10,10 @@
         <p>Description: {{ relationship.description }}</p>
         <p>Why we broke up: {{ relationship.break_up }}</p>
       </div>
+      <div class="card-action">
+        <a href="{% url 'relationship_update' relationship.id %}">Edit</a>
+        <a href="{% url 'relationship_delete' relationship.id %}">Delete</a>
+      </div>
 </div>
 
 {% endblock %}
