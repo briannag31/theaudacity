@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Relationship Details</h1>
+
+<div class="card">
+    <div class="card-content">
+        <span class="card-title">{{ relationship.name }}</span>
+        <p>How we met: {{ relationship.met }}</p>
+        <p>Description: {{ relationship.description }}</p>
+        <p>Why we broke up: {{ relationship.break_up }}</p>
+      </div>
+</div>
+
+{% endblock %}
+
