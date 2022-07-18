@@ -1,10 +1,9 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 class Trait(models.Model):
-    designation = models.CharField(("How would you designate this trait - positive, negative, neutral, etc.?"), max_length=100)
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
@@ -19,6 +18,7 @@ class SigOther(models.Model):
     description = models.TextField(max_length=250)
     break_up = models.TextField(max_length=250)
     traits = models.ManyToManyField(Trait)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.name
     
@@ -40,3 +40,9 @@ class Meetings(models.Model):
   def __str__(self):
     return f" We met on {self.date} at {self.location}"
 
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    relationship = models.ForeignKey(SigOther, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for relationship_id: {self.relationship_id} @{self.url}"

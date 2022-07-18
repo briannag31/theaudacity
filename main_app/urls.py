@@ -16,5 +16,6 @@ path('traits/create/', views.TraitCreate.as_view(), name='traits_create'),
 path('traits/<int:pk>/update/', views.TraitUpdate.as_view(), name='traits_update'),
 path('traits/<int:pk>/delete/', views.TraitDelete.as_view(), name='traits_delete'),
 path('relationships/<int:relationship_id>/assoc_trait/<int:trait_id>/', views.assoc_trait, name='assoc_trait'),
-
+path('relationships/<int:relationship_id>/add_photo/', views.add_photo, name='add_photo'),
+path('accounts/signup/', views.signup, name='signup'),
 ]
